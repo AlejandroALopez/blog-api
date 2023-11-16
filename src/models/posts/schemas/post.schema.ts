@@ -37,6 +37,9 @@ export class Post {
   author: string;
 
   @Prop({ required: true })
+  tag: string;
+
+  @Prop({ required: true })
   description: string;
 
   @Prop({ type: [Content], required: true })
