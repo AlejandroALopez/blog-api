@@ -2,15 +2,31 @@ import { Model } from 'mongoose';
 import { Injectable } from '@nestjs/common';
 // import { Post } from './interfaces/posts.interface';
 import { InjectModel } from '@nestjs/mongoose';
-import { Post } from './schemas/post.schema';
+import { Post, PostDocument } from './schemas/post.schema';
 
 @Injectable()
-export class PostsService {
-  constructor(@InjectModel(Post.name) private postModel: Model<Post>) {}
+export class PostService {
+  constructor(@InjectModel(Post.name) private postModel: Model<PostDocument>) {}
 
-  private readonly posts: Post[] = [];
+  async create(post: Post): Promise<Post> {
+    const createdPost = new this.postModel(post);
+    return createdPost.save();
+  }
 
-  async getPosts(): Promise<Post[]> {
+  // TODO: modify to return post WITHOUT content parameter
+  async findAll(): Promise<Post[]> {
     return this.postModel.find().exec();
+  }
+
+  async findOne(id: string): Promise<Post> {
+    return this.postModel.findById(id).exec();
+  }
+
+  async update(id: string, post: Post): Promise<Post> {
+    return this.postModel.findByIdAndUpdate(id, post, { new: true }).exec();
+  }
+
+  async remove(id: string): Promise<Post> {
+    return this.postModel.findByIdAndRemove(id).exec();
   }
 }
