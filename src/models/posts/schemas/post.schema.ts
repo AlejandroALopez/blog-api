@@ -15,7 +15,7 @@ export class Content {
       return this.type !== 'image';
     },
   })
-  data: string;
+  data?: string;
 
   @Prop({
     required: function () {
