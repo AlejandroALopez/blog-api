@@ -22,7 +22,7 @@ export class Content {
       return this.type === 'image';
     },
   })
-  imageUrl?: string;
+  imageId?: string;
 }
 
 @Schema()
