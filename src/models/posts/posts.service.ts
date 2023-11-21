@@ -13,9 +13,8 @@ export class PostService {
     return createdPost.save();
   }
 
-  // TODO: modify to return post WITHOUT content parameter
   async findAll(): Promise<Post[]> {
-    return this.postModel.find().exec();
+    return this.postModel.find({}, 'title date author tag description').exec();
   }
 
   async findOne(id: string): Promise<Post> {
