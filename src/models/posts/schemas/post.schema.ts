@@ -7,7 +7,10 @@ export type PostDocument = HydratedDocument<Post>;
 export class Content {
   // for blog content, either text, images, code snippets, or text in colored boxes
 
-  @Prop({ required: true, enum: ['paragraph', 'image', 'code', 'coloredBox'] })
+  @Prop({
+    required: true,
+    enum: ['paragraph', 'subtitle', 'image', 'code', 'coloredBox'],
+  })
   type: string;
 
   @Prop({
