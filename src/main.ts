@@ -6,7 +6,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const corsOptions: CorsOptions = {
-    origin: 'http://localhost:4200', // Replace with hosted URL
+    origin: 'https://alejandro-lopez-blog-api-63b54213a1ac.herokuapp.com/', // Replace with hosted URL
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
   };
