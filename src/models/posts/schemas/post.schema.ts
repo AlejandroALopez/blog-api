@@ -9,7 +9,7 @@ export class Content {
 
   @Prop({
     required: true,
-    enum: ['paragraph', 'subtitle', 'image', 'code', 'coloredBox'],
+    enum: ['paragraph', 'subtitle', 'image', 'code', 'coloredBox', 'link'],
   })
   type: string;
 
