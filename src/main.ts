@@ -6,7 +6,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const corsOptions: CorsOptions = {
-    origin: 'https://www.alejandroalopez.com', // Replace with hosted URL
+    // origin: 'http://localhost:4200', // for local testing
+    origin: 'https://www.alejandroalopez.com',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
   };
