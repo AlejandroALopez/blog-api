@@ -21,7 +21,7 @@ export class PostController {
 
   @Get()
   async findAll(): Promise<PostModel[]> {
-    return this.postService.findAll();
+    return (await this.postService.findAll()).reverse();
   }
 
   @Get(':id')
